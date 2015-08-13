@@ -1,6 +1,6 @@
 class GifsController < ApplicationController
   before_action :set_gif, only: [:show, :edit, :update, :destroy]
-  # validates_format_of :url, :with => \(.+)\.gif, :on => :create
+
 
   # GET /gifs
   # GET /gifs.json
@@ -67,6 +67,7 @@ class GifsController < ApplicationController
   end
 
   private
+  
     # Use callbacks to share common setup or constraints between actions.
     def set_gif
       @gif = Gif.find(params[:id])
