@@ -1,12 +1,20 @@
 class GifsController < ApplicationController
   before_action :set_gif, only: [:show, :edit, :update, :destroy]
-
+  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy, :upvote, :downvote]
 
   # GET /gifs
   # GET /gifs.json
   def index
     @gifs = Gif.all
     @gif = Gif.new
+  end
+
+  def upvote(gif)
+    current_user.likes(gif)
+  end
+
+  def downvote(gif)
+    current_user.dislikes(gif)
   end
 
   # GET /gifs/1

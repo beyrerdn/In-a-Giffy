@@ -5,6 +5,7 @@ gem 'bootstrap-sass', '~> 3.3.5'
 gem 'bootstrap_form'
 gem 'devise'
 gem 'kaminari'
+gem 'acts_as_votable', '~> 0.10.0'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
