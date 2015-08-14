@@ -37,7 +37,7 @@ class GifsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @gif.errors, status: :unprocessable_entity }
-        format.js {}
+        format.js { render flash: @gif.errors}
       end
     end
   end
@@ -67,7 +67,7 @@ class GifsController < ApplicationController
   end
 
   private
-  
+
     # Use callbacks to share common setup or constraints between actions.
     def set_gif
       @gif = Gif.find(params[:id])
@@ -75,6 +75,6 @@ class GifsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gif_params
-      params.require(:gif).permit(:url, :user_id)
+      params.require(:gif).permit(:url)
     end
 end

@@ -1,5 +1,9 @@
 <div class="col-sm-6 col-md-3">
+  <%= link_to gif_path(:id => gif.id), :remote => true, "data-toggle" => "modal", "data-target" => "#gif-#{gif.id}-modal" do %>
     <div class="gif-<%=gif.id%> gif">
       <img src="<%=gif.url%>" class="img-responsive" alt="No Gif Found!!!"/>
     </div>
+  <% end %>
 </div>
+
+<%= render :partial => 'gifs/show', :layout => 'layouts/modal', :locals => {:gif => gif, :title => "", :id => "gif-#{gif.id}-modal"} %>

@@ -1,14 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Url:</strong>
-  <%= @gif.url %>
-</p>
+<p><strong>Url:</strong><%= gif.url%></p>
 
-<p>
-  <strong>User:</strong>
-  <%= @gif.user_id %>
-</p>
-
-<%= link_to 'Edit', edit_gif_path(@gif) %> |
-<%= link_to 'Back', gifs_path %>
+<p><strong>Submitted by:</strong><%= gif.user.email%></p>
