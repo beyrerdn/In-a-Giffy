@@ -5,16 +5,24 @@ class GifsController < ApplicationController
   # GET /gifs
   # GET /gifs.json
   def index
-    @gifs = Gif.all
+    @gifs = Gif.order("cached_votes_score DESC")
     @gif = Gif.new
   end
 
   def upvote
     current_user.likes(@gif)
+    respond_to do |format|
+      format.html {}
+      format.js {}
+    end
   end
 
   def downvote
     current_user.dislikes(@gif)
+    respond_to do |format|
+      format.html {}
+      format.js {}
+    end
   end
 
   # GET /gifs/1

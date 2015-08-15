@@ -4,5 +4,5 @@
 <%= render :partial => 'gifs/form', :layout => 'layouts/modal', :locals => {:title => "A new gif!", :id => "newGif"} %>
 
 <div id="gifs-list" class="row">
-  <%= render :partial => 'gif', collection: @gifs %>
+  <%= render :partial => 'gif', :locals => {:gifs => @gifs}%>
 </div>

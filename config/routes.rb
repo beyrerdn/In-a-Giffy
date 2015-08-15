@@ -4,9 +4,9 @@ Rails.application.routes.draw do
 
   root 'gifs#index'
 
-  post 'gif/upvote' => 'gifs#upvote', :as => :upvote
+  post 'gifs/:id/upvote' => 'gifs#upvote', :as => :upvote
 
-  post 'gif/downvote' => 'gifs#downvote', :as => :downvote
+  post 'gifs/:id/downvote' => 'gifs#downvote', :as => :downvote
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

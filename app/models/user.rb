@@ -6,5 +6,13 @@ class User < ActiveRecord::Base
 
   has_many :gifs
   acts_as_voter
-  
+
+  def upvoted?(gif)
+    voted_up_for?(gif)
+  end
+
+  def downvoted?(gif)
+    voted_down_for?(gif)
+  end
+
 end
