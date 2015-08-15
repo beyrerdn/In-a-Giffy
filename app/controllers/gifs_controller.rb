@@ -8,9 +8,17 @@ class GifsController < ApplicationController
     if params[:tag]
       @gifs = Tag.tagged_with(params[:tag])
       @gif = Gif.new
+      respond_to do |format|
+        format.html {}
+        format.js {}
+      end
     else
       @gifs = Gif.order("cached_votes_score DESC")
       @gif = Gif.new
+      respond_to do |format|
+        format.html {}
+        format.js {}
+      end
     end
   end
 
