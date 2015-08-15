@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150814133715) do
+ActiveRecord::Schema.define(version: 20150815025821) do
 
   create_table "gifs", force: :cascade do |t|
     t.string   "url"
@@ -34,6 +34,22 @@ ActiveRecord::Schema.define(version: 20150814133715) do
   add_index "gifs", ["cached_weighted_average"], name: "index_gifs_on_cached_weighted_average"
   add_index "gifs", ["cached_weighted_score"], name: "index_gifs_on_cached_weighted_score"
   add_index "gifs", ["cached_weighted_total"], name: "index_gifs_on_cached_weighted_total"
+
+  create_table "taggings", force: :cascade do |t|
+    t.integer  "gif_id"
+    t.integer  "tag_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  add_index "taggings", ["gif_id"], name: "index_taggings_on_gif_id"
+  add_index "taggings", ["tag_id"], name: "index_taggings_on_tag_id"
+
+  create_table "tags", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string   "email",                  default: "", null: false

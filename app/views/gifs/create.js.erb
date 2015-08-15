@@ -1,3 +1,3 @@
 $("#newGif").modal('hide');
-$("#gifs-list").prepend("<%=escape_javascript(render :partial => 'gifs/gif', :locals => {:gif => @gif})%>");
-resetForm($('#new_gif'));
+$("#gifs-list").prepend("<%=escape_javascript(render :partial => 'gifs/gif', :locals => {:gifs => @gifs})%>");
+$('#new_gif')[0].reset();

@@ -48,7 +48,6 @@ body {
 }
 
 .gif-score {
-  font-size: 120%;
   text-align: center;
   color: black;
   border-radius: 100%;
@@ -57,4 +56,7 @@ body {
 
 .gif-text {
   text-align: center;
+}
+.gif-text.btn-default {
+  font-size: 50%;
 }

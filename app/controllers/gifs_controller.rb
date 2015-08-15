@@ -5,8 +5,13 @@ class GifsController < ApplicationController
   # GET /gifs
   # GET /gifs.json
   def index
-    @gifs = Gif.order("cached_votes_score DESC")
-    @gif = Gif.new
+    if params[:tag]
+      @gifs = Tag.tagged_with(params[:tag])
+      @gif = Gif.new
+    else
+      @gifs = Gif.order("cached_votes_score DESC")
+      @gif = Gif.new
+    end
   end
 
   def upvote
@@ -44,6 +49,7 @@ class GifsController < ApplicationController
   def create
     @gif = Gif.new(gif_params)
     @gif.user_id = current_user.id
+    @gifs = Gif.order("cached_votes_score DESC")
 
     respond_to do |format|
       if @gif.save
@@ -91,6 +97,6 @@ class GifsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gif_params
-      params.require(:gif).permit(:url)
+      params.require(:gif).permit(:url, :all_tags)
     end
 end
