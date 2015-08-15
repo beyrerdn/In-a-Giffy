@@ -9,9 +9,9 @@
               <%=render :partial => 'gifs/votelinks', :remote => true, :locals => {:gif => gif} %>
             </div>
           </div>
+          <%= render :partial => 'gifs/show', :layout => 'layouts/modal', :locals => {:gif => gif, :title => "", :id => "gif-#{gif.id}-modal"} %>
         <% end %>
       </div>
-      <%= render :partial => 'gifs/show', :layout => 'layouts/modal', :locals => {:gif => gif, :title => "", :id => "gif-#{gif.id}-modal"} %>
     <% end %>
   </div>
 <% end %>

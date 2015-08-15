@@ -4,5 +4,6 @@
 
 <div class="gif-<%=gif.id%> gif-text">
   <p><strong>Submitted by: </strong><%=gif.user.email%>, <em><%= time_ago_in_words(gif.created_at)%> ago</em></p>
-  <p><strong>Source: </strong><%=link_to gif.url, gif.url%></p>
+  <p><strong>Source: </strong><%=link_to gif.url, gif.url %></p>
+  <p><strong>Tags: </strong><%= raw tag_links(gif.all_tags) || "N/A" %></p>
 </div>
