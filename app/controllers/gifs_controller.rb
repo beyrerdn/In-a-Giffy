@@ -1,12 +1,41 @@
 class GifsController < ApplicationController
-  before_action :set_gif, only: [:show, :edit, :update, :destroy]
-
+  before_action :set_gif, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
+  before_action :authenticate_user!, only: [:create, :edit, :update, :destroy, :upvote, :downvote]
 
   # GET /gifs
   # GET /gifs.json
   def index
-    @gifs = Gif.all
-    @gif = Gif.new
+    if params[:tag]
+      @gifs = Tag.tagged_with(params[:tag])
+      @gif = Gif.new
+      respond_to do |format|
+        format.html {}
+        format.js {}
+      end
+    else
+      @gifs = Gif.order("cached_votes_score DESC")
+      @gif = Gif.new
+      respond_to do |format|
+        format.html {}
+        format.js {}
+      end
+    end
+  end
+
+  def upvote
+    current_user.likes(@gif)
+    respond_to do |format|
+      format.html {}
+      format.js {}
+    end
+  end
+
+  def downvote
+    current_user.dislikes(@gif)
+    respond_to do |format|
+      format.html {}
+      format.js {}
+    end
   end
 
   # GET /gifs/1
@@ -28,6 +57,7 @@ class GifsController < ApplicationController
   def create
     @gif = Gif.new(gif_params)
     @gif.user_id = current_user.id
+    @gifs = Gif.order("cached_votes_score DESC")
 
     respond_to do |format|
       if @gif.save
@@ -37,7 +67,7 @@ class GifsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @gif.errors, status: :unprocessable_entity }
-        format.js {}
+        format.js { render flash: @gif.errors}
       end
     end
   end
@@ -67,7 +97,7 @@ class GifsController < ApplicationController
   end
 
   private
-  
+
     # Use callbacks to share common setup or constraints between actions.
     def set_gif
       @gif = Gif.find(params[:id])
@@ -75,6 +105,6 @@ class GifsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gif_params
-      params.require(:gif).permit(:url, :user_id)
+      params.require(:gif).permit(:url, :all_tags)
     end
 end

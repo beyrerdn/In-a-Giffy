@@ -5,6 +5,7 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/masonry/3.3.1/masonry.pkgd.js"></script>
 </head>
 <body id="<%= params[:controller] %>" class="<%= params[:action] %>">
     <!-- Navigation -->
@@ -26,8 +27,8 @@
           <ul class="nav navbar-nav navbar-right">
             <%= render :partial => 'shared/login_bar', :locals => {:current_user => current_user} %>
           </ul>
-          <ul class="nav navbar-nav navbar-left">
-            <%= link_to "In a Giffy", gifs_path, :class => "navbar-brand" %>
+          <ul class="nav-title nav navbar-nav navbar-left">
+            <%= link_to "In a Giffy", root_path, :remote => true, :class => "navbar-brand" %>
           </ul>
         </div>
           <!-- /.navbar-collapse -->
@@ -37,9 +38,9 @@
 
     <!-- Main Content -->
   <div class="container-fluid">
-    <div class="row">
+    <!-- <div class="row">
       <div class="col-xs-12" style="height:40px;"></div>
-    </div>
+    </div> -->
     <div class="row">
         <div class="main-content col-xs-12">
             <% if notice %>
@@ -54,7 +55,8 @@
   </div>
   <hr>
 
-  <!-- <%# render :partial => 'gifs/info', :layout => 'layouts/modal', :locals => {:title => "", :id => ""} %> -->
+  <%= render :partial => 'gifs/form', :layout => 'layouts/modal', :locals => {:title => "A new gif!", :id => "newGif"} %>
+
 
 </body>
 </html>

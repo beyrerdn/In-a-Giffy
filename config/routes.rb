@@ -1,8 +1,12 @@
 Rails.application.routes.draw do
-  resources :gifs
+  root 'gifs#index'
+  resources :gifs, :only => [:index, :new, :show, :create]
   devise_for :users
 
-  root 'gifs#index'
+  get 'tags/:tag', to: 'gifs#index', as: "tag"
+
+  post 'gifs/:id/upvote' => 'gifs#upvote', :as => :upvote
+  post 'gifs/:id/downvote' => 'gifs#downvote', :as => :downvote
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

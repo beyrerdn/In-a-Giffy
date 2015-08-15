@@ -1,0 +1,1 @@
+$('.vote-<%=@gif.id%>').html("<%= escape_javascript render(:partial => 'gifs/votelinks', :locals => { :gif => @gif }) %>")

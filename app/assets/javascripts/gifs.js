@@ -8,3 +8,19 @@ function resetForm($form) {
     $form.find('input:radio, input:checkbox')
          .removeAttr('checked').removeAttr('selected');
 }
+
+$('#index').ready(function(){
+  $('.gif').hover(function(){
+    $(this).find('.vote').show()
+  }, function() {
+    $(this).find('.vote').hide();
+  });
+})
+
+$('#index').on('updatelayout', function(){
+  $('.gif').hover(function(){
+    $(this).find('.vote').show()
+  }, function() {
+    $(this).find('.vote').hide();
+  });
+})

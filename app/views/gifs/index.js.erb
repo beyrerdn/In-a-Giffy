@@ -1,0 +1,6 @@
+// Lines 2-4 came from talking with Caleb about a similar issue he had rendering a view out of a modal
+// These lines are needed to hide the backdrop from the bootstrap modal.
+$('.modal').modal('hide');
+$('body').removeClass('modal-open');
+$('.modal-backdrop').remove();
+$("#gifs-list").html("<%=escape_javascript(render :partial => 'gifs/gif', :locals => {:gifs => @gifs})%>");
