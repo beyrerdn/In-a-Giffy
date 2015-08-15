@@ -2,5 +2,7 @@
   <img src="<%=gif.url%>" class="img-responsive" alt="No Gif Found!!!"/>
 </div>
 
-<h4><strong>Submitted by: </strong><%=gif.user.email%>, <%= time_ago_in_words(gif.created_at)%> ago</h4>
-<h4><strong>Source: </strong><%=link_to gif.url, gif.url%></h4>
+<div class="gif-<%=gif.id%> gif-text">
+  <p><strong>Submitted by: </strong><%=gif.user.email%>, <em><%= time_ago_in_words(gif.created_at)%> ago</em></p>
+  <p><strong>Source: </strong><%=link_to gif.url, gif.url%></p>
+</div>

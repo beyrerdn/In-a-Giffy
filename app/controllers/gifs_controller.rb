@@ -1,20 +1,28 @@
 class GifsController < ApplicationController
-  before_action :set_gif, only: [:show, :edit, :update, :destroy]
+  before_action :set_gif, only: [:show, :edit, :update, :destroy, :upvote, :downvote]
   before_action :authenticate_user!, only: [:create, :edit, :update, :destroy, :upvote, :downvote]
 
   # GET /gifs
   # GET /gifs.json
   def index
-    @gifs = Gif.all
+    @gifs = Gif.order("cached_votes_score DESC")
     @gif = Gif.new
   end
 
-  def upvote(gif)
-    current_user.likes(gif)
+  def upvote
+    current_user.likes(@gif)
+    respond_to do |format|
+      format.html {}
+      format.js {}
+    end
   end
 
-  def downvote(gif)
-    current_user.dislikes(gif)
+  def downvote
+    current_user.dislikes(@gif)
+    respond_to do |format|
+      format.html {}
+      format.js {}
+    end
   end
 
   # GET /gifs/1

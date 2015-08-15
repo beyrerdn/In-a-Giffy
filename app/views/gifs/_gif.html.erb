@@ -1,9 +1,17 @@
-<div class="col-sm-6 col-md-3">
-  <%= link_to gif_path(:id => gif.id), :remote => true, "data-toggle" => "modal", "data-target" => "#gif-#{gif.id}-modal" do %>
-    <div class="gif-<%=gif.id%> gif">
-      <img src="<%=gif.url%>" class="img-responsive" alt="No Gif Found!!!"/>
-    </div>
-  <% end %>
-</div>
-
-<%= render :partial => 'gifs/show', :layout => 'layouts/modal', :locals => {:gif => gif, :title => "", :id => "gif-#{gif.id}-modal"} %>
+<% gifs.each_slice(4) do |row| %>
+  <div class="row">
+    <% row.each do |gif| %>
+      <div class="col-xs-6 col-sm-3">
+        <%= link_to gif_path(:id => gif.id), :remote => true, "data-toggle" => "modal", "data-target" => "#gif-#{gif.id}-modal" do %>
+          <div class="gif-<%=gif.id%> gif">
+            <img src="<%=gif.url%>" class="img-responsive" alt="No Gif Found!!!"/>
+            <div class="vote-<%=gif.id%> vote">
+              <%=render :partial => 'gifs/votelinks', :remote => true, :locals => {:gif => gif} %>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <%= render :partial => 'gifs/show', :layout => 'layouts/modal', :locals => {:gif => gif, :title => "", :id => "gif-#{gif.id}-modal"} %>
+    <% end %>
+  </div>
+<% end %>
