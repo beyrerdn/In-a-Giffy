@@ -57,17 +57,13 @@ class GifsController < ApplicationController
   def create
     @gif = Gif.new(gif_params)
     @gif.user_id = current_user.id
-    @gifs = Gif.order("cached_votes_score DESC")
-
     respond_to do |format|
       if @gif.save
-        format.html { redirect_to @gif, notice: 'Gif was successfully created.' }
-        format.json { render :show, status: :created, location: @gif }
+        @gifs = Gif.order("cached_votes_score DESC")
+        @gifs.unshift(@gif)
         format.js {}
       else
-        format.html { render :new }
-        format.json { render json: @gif.errors, status: :unprocessable_entity }
-        format.js { render new: @gif.errors }
+        format.js { render :new }
       end
     end
   end
@@ -105,6 +101,6 @@ class GifsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gif_params
-      params.require(:gif).permit(:url, :all_tags)
+      params.require(:gif).permit(:url, :all_tags, :file)
     end
 end

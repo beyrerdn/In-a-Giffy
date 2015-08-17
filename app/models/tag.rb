@@ -6,5 +6,5 @@ class Tag < ActiveRecord::Base
   def self.tagged_with(name)
     Tag.find_by_name(name).gifs
   end
-  
+
 end

@@ -12,59 +12,59 @@ user_gifs = user.gifs << Gif.create(
   [
     {
     :url =>"http://media.giphy.com/media/hiQndt1hi1Lva/giphy.gif",
-    :tags => ["#Hey Arnold!", "#breakfast"]
+    :all_tags => "#Hey Arnold!, #breakfast"
     },
     {
     :url =>"http://media.giphy.com/media/3ZWc4EEJ34LEA/giphy.gif",
-    :tags => ["#breakfast"]
+    :all_tags => "#breakfast"
     },
     {
     :url => "http://media.giphy.com/media/KfL5idvGEqXXq/giphy.gif",
-    :tags => ["#slime", "#ghostbusters"]
+    :all_tags => "#slime, #ghostbusters"
     },
     {
     :url =>"http://media.giphy.com/media/3gGJWecQcONmU/giphy.gif",
-    :tags => ["#funny", "#The Shining"]
+    :all_tags => "#funny, #The Shining"
     },
     {
     :url =>"http://media.giphy.com/media/1hH0aKzgUkq40/giphy.gif",
-    :tags => ["#laugh"]
+    :all_tags => "#laugh"
     },
     {
     :url =>"http://media.giphy.com/media/UHPXak9LTcdKU/giphy.gif",
-    :tags => ["#The Shining", "#Batman", "#retro"]
+    :all_tags => "#The Shining, #Batman, #retro"
     },
     {
     :url =>"http://media.giphy.com/media/4KdtAcSh3pMD6/giphy.gif",
-    :tags => ["#dancing", "#retro"]
+    :all_tags => "#dancing, #retro"
     },
     {
     :url =>"http://media.giphy.com/media/IQjbS7v9eYivm/giphy.gif",
-    :tags => ["#Deal with it", "#Spongebob", "#funny"]
+    :all_tags => "#Deal with it, #Spongebob, #funny"
     },
     {
     :url =>"http://media.giphy.com/media/kWHR3f23hTzz2/giphy.gif",
-    :tags => ["#awkward"]
+    :all_tags => "#awkward"
     },
     {
     :url => "http://media.giphy.com/media/1PUzYSVDY7Nug/giphy.gif",
-    :tags => ["#awkward"]
+    :all_tags => "#awkward"
     },
     {
     :url =>"http://media.giphy.com/media/dbnxZupscdwCQ/giphy.gif",
-    :tags => ["#awkward", "#LOTR", "#eyes"]
+    :all_tags => "#awkward, #LOTR, #eyes"
     },
     {
     :url =>"http://media.giphy.com/media/zE3Kq66OEF85O/giphy.gif",
-    :tags => ["#awkward", "#awful"]
+    :all_tags => "#awkward, #awful"
     },
     {
     :url =>"http://media.giphy.com/media/Ylc1hHLPOjyJG/giphy.gif",
-    :tags => ["#awkward", "#Simpsons"]
+    :all_tags => "#awkward, #Simpsons"
     },
     {
     :url =>"http://media.giphy.com/media/wgmWyQGzaZ6Fy/giphy.gif",
-    :tags => ["#laugh", "#Simpsons"]
+    :all_tags => "#laugh, #Simpsons"
     }
   ]
 )

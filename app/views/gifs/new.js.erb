@@ -1,3 +1,2 @@
-$("#newGif .modal-content").html("<%= escape_javascript( render 'gifs/form' ) %>");
-$('#new_gif')[0].reset();
-$("#newGif").modal('show’);
+$("#newGif .modal-body").html('<%= escape_javascript( render :partial => "gifs/form" ) %>');
+$("#newGif").modal('show');
