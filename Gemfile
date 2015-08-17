@@ -9,6 +9,8 @@ group :production do
   gem 'acts_as_votable', '~> 0.10.0'
   gem 'pg'
   gem 'rails_12factor'
+  gem "refile", require: "refile/rails"
+  gem "refile-mini_magick"
 
   # Use SCSS for stylesheets
   gem 'sass-rails', '~> 5.0'
