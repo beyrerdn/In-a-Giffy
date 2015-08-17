@@ -1,9 +1,15 @@
 <div class="col-xs-12">
-  <img src="<%=gif.url%>" class="img-responsive" alt="No Gif Found!!!"/>
+  <% if !gif.file_id %>
+    <img src="<%=gif.url%>" class="img-responsive center-block" alt="No Gif Found!!!"/>
+  <% else %>
+    <%= image_tag(attachment_url(gif, :file), :class => "img-responsive center-block") %>
+  <% end %>
 </div>
 
 <div class="gif-<%=gif.id%> gif-text">
   <p><strong>Submitted by: </strong><%=gif.user.email%>, <em><%= time_ago_in_words(gif.created_at)%> ago</em></p>
-  <p><strong>Source: </strong><%=link_to gif.url, gif.url %></p>
+  <% if gif.url %>
+    <p><strong>Source: </strong><%=link_to gif.url, gif.url %></p>
+  <% end %>
   <p><strong>Tags: </strong><%= raw tag_links(gif.all_tags) || "N/A" %></p>
 </div>

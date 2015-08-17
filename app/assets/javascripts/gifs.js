@@ -9,18 +9,10 @@ function resetForm($form) {
          .removeAttr('checked').removeAttr('selected');
 }
 
-$('#index').ready(function(){
-  $('.gif').hover(function(){
-    $(this).find('.vote').show()
-  }, function() {
-    $(this).find('.vote').hide();
-  });
-})
+$(document).on('mouseenter', '.gif', function() {
+  $(this).find('.vote').show();
+});
 
-$('#index').on('updatelayout', function(){
-  $('.gif').hover(function(){
-    $(this).find('.vote').show()
-  }, function() {
-    $(this).find('.vote').hide();
-  });
-})
+$(document).on('mouseleave', '.gif', function() {
+  $(this).find('.vote').hide();
+});

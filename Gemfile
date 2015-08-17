@@ -13,7 +13,7 @@ source 'https://rubygems.org'
   gem "refile-mini_magick"
   gem 'remotipart', '~> 1.2'
   gem 'refile-postgres'
-  
+
   # Use SCSS for stylesheets
   gem 'sass-rails', '~> 5.0'
   # Use Uglifier as compressor for JavaScript assets

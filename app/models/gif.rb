@@ -1,16 +1,17 @@
 class Gif < ActiveRecord::Base
-  validates_presence_of :url
-  validates :url, uniqueness: true, on: :create
+  validates :url, uniqueness: true, on: :create, :allow_blank => true
   validates_format_of :url,
                       :with => /\.gif\z/,
                       :on => :create,
+                      :allow_blank => true,
                       :message => "Gifs only!"
+  attachment :file, content_type: "image/gif", extension: "gif"
   acts_as_votable
   belongs_to :user
   has_many :taggings
   has_many :tags, through: :taggings
 
-  attachment :file
+
 
   #Did not know that ActiveRecord .where could accept a symbol
   def all_tags=(names)

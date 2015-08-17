@@ -67,7 +67,7 @@ class GifsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @gif.errors, status: :unprocessable_entity }
-        format.js { render new: @gif.errors }
+        format.js { render :new }
       end
     end
   end
@@ -105,6 +105,6 @@ class GifsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def gif_params
-      params.require(:gif).permit(:url, :all_tags)
+      params.require(:gif).permit(:url, :all_tags, :file)
     end
 end
