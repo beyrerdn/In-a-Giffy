@@ -67,7 +67,7 @@ class GifsController < ApplicationController
       else
         format.html { render :new }
         format.json { render json: @gif.errors, status: :unprocessable_entity }
-        format.js { render flash: @gif.errors}
+        format.js { render new: @gif.errors }
       end
     end
   end

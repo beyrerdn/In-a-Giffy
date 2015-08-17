@@ -5,3 +5,19 @@
   <li><%= link_to "Sign up", new_user_registration_path %></li>
   <li><%= link_to "Login", new_user_session_path %></li>
 <% end %>
+
+<!-- The code below is to try and get the modal to pop up for login/signup-->
+<!-- <%# if user_signed_in? %>
+  <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
+  <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+<%# elsif !user_signed_in? %>
+  <li><%= link_to "Sign up", new_user_registration_path %></li> -->
+  <!-- <li><%# link_to "Login", new_user_session_path %></li> -->
+<%# end %>
+
+<!-- <div id="login-modal"> -->
+  <%# render :partial => 'devise/sessions/new', :layout => 'layouts/modal', :locals => {:resource => @user, :resource_name => :user} %>
+<!-- </div> -->
+<!-- <div id="signup-modal"> -->
+  <%# render :partial => 'devise/registrations/new', :layout => 'layouts/modal', :locals => {:resource => @user, :resource_name => :user} %>
+<!-- </div> -->
