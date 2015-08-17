@@ -1,4 +1,5 @@
 class Gif < ActiveRecord::Base
+  validates_presence_of :url
   validates :url, uniqueness: true, on: :create
   validates_format_of :url,
                       :with => /\.gif\z/,
