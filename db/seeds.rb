@@ -12,7 +12,7 @@ user_gifs = user.gifs << Gif.create(
   [
     {
     :url =>"http://media.giphy.com/media/hiQndt1hi1Lva/giphy.gif",
-    :tags => "#Hey Arnold!, #breakfast"]
+    :tags => "#Hey Arnold!, #breakfast"
     },
     {
     :url =>"http://media.giphy.com/media/3ZWc4EEJ34LEA/giphy.gif",
