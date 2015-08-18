@@ -11,8 +11,6 @@ class Gif < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
 
-
-
   #Did not know that ActiveRecord .where could accept a symbol
   def all_tags=(names)
     self.tags = names.split(",").map do |name|
