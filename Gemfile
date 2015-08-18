@@ -13,6 +13,8 @@ source 'https://rubygems.org'
   gem "refile-mini_magick"
   gem 'remotipart', '~> 1.2'
   gem 'refile-postgres'
+  gem 'capybara'
+  gem 'poltergeist'
 
   group :test do
     gem 'shoulda'
