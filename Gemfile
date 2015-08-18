@@ -13,7 +13,14 @@ source 'https://rubygems.org'
   gem "refile-mini_magick"
   gem 'remotipart', '~> 1.2'
   gem 'refile-postgres'
+  gem 'capybara'
+  gem 'poltergeist'
 
+  group :test do
+    gem 'shoulda'
+    gem 'factory_girl_rails'
+    gem 'simplecov', :require => false
+  end
 
   gem 'sass-rails', '~> 5.0'
 
