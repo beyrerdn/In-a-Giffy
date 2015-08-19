@@ -1,4 +1,5 @@
 source 'https://rubygems.org'
+  ruby '2.2.1'
 
   gem 'rails', '4.2.3'
   gem 'bootstrap-sass', '~> 3.3.5'
@@ -12,7 +13,8 @@ source 'https://rubygems.org'
   gem "refile", require: "refile/rails"
   gem "refile-mini_magick"
   gem 'remotipart', '~> 1.2'
-  gem 'refile-postgres'
+  gem 'refile-s3'
+  gem 'figaro'
   gem 'capybara'
   gem 'poltergeist'
 

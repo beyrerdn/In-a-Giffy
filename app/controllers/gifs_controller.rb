@@ -59,7 +59,7 @@ class GifsController < ApplicationController
     @gif.user_id = current_user.id
     respond_to do |format|
       if @gif.save
-        @gifs = Gif.order("cached_votes_score DESC")
+        @gifs = Gif.order("cached_votes_score DESC").reject{|gif| gif.id == @gif.id}
         @gifs.unshift(@gif)
         format.js {}
       else
