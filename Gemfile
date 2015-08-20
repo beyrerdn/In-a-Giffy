@@ -8,20 +8,25 @@ source 'https://rubygems.org'
   gem 'kaminari'
   gem 'acts_as_votable', '~> 0.10.0'
   gem 'pg'
-  gem 'rails_12factor'
+  gem 'stripe', :git => 'https://github.com/stripe/stripe-ruby'
 
   gem "refile", require: "refile/rails"
   gem "refile-mini_magick"
   gem 'remotipart', '~> 1.2'
   gem 'refile-s3'
   gem 'figaro'
-  gem 'capybara'
-  gem 'poltergeist'
+
+  group :production do
+    gem 'rails_12factor'
+  end
+
 
   group :test do
     gem 'shoulda'
     gem 'factory_girl_rails'
     gem 'simplecov', :require => false
+    gem 'capybara'
+    gem 'poltergeist', require: 'capybara/poltergeist'
   end
 
   gem 'sass-rails', '~> 5.0'
