@@ -1,8 +1,8 @@
 class Gif < ActiveRecord::Base
-  validates :url, uniqueness: true, on: :create, :allow_blank => true
+  validates :url, uniqueness: true, on: [:create, :edit, :update, :destroy], :allow_blank => true
   validates_format_of :url,
                       :with => /\.gif\z/,
-                      :on => :create,
+                      :on => [:create, :edit, :update, :destroy],
                       :allow_blank => true,
                       :message => "Gifs only!"
   attachment :file, content_type: "image/gif", extension: "gif"
