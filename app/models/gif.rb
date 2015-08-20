@@ -10,6 +10,8 @@ class Gif < ActiveRecord::Base
   belongs_to :user
   has_many :taggings
   has_many :tags, through: :taggings
+  #Alias for the db column "cached_votes_score"
+  alias_attribute :score, :cached_votes_score
 
   #Did not know that ActiveRecord .where could accept a symbol
   def all_tags=(names)
@@ -20,11 +22,6 @@ class Gif < ActiveRecord::Base
 
   def all_tags
     self.tags.map(&:name).join(", ")
-  end
-
-  #Alias for the db column "cached_votes_score"
-  def score
-    self.cached_votes_score
   end
 
 
