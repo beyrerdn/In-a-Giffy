@@ -1,9 +1,9 @@
 <% if user_signed_in? %>
-  <li><%= link_to 'Edit Profile', edit_user_registration_path %></li>
-  <li><%= link_to "Logout", destroy_user_session_path, method: :delete %></li>
+  <li><%= link_to 'New Gif', new_gif_path, :class => "btn btn-default", :remote => true, "data-toggle" => "modal", "data-target" => "#newGif" %></li>
+  <li><%= link_to "Logout", destroy_user_session_path, :class => "btn btn-default", method: :delete %></li>
 <% elsif !user_signed_in? %>
-  <li><%= link_to "Sign Up", new_user_registration_path %></li>
-  <li><%= link_to "Login", new_user_session_path %></li>
+  <li><%= link_to "Sign Up", new_user_registration_path, :class => "btn btn-default" %></li>
+  <li><%= link_to "Login", new_user_session_path, :class => "btn btn-default" %></li>
 <% end %>
 
 <!-- The code below is to try and get the modal to pop up for login/signup-->
