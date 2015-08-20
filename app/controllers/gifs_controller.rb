@@ -57,12 +57,14 @@ class GifsController < ApplicationController
   def create
     @gif = Gif.new(gif_params)
     @gif.user_id = current_user.id
-    respond_to do |format|
-      if @gif.save
-        @gifs = Gif.order("cached_votes_score DESC").reject{|gif| gif.id == @gif.id}
-        @gifs.unshift(@gif)
+    if @gif.save
+      @gifs = Gif.order("cached_votes_score DESC").reject{|gif| gif.id == @gif.id}
+      @gifs.unshift(@gif)
+      respond_to do |format|
         format.js {}
-      else
+      end
+    else
+      respond_to do |format|
         format.js { render :new }
       end
     end

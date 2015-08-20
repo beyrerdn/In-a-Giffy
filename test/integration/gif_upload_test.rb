@@ -1,3 +1,4 @@
+
 require 'test_helper'
 
 class GifUploadTest < ActionDispatch::IntegrationTest
@@ -5,7 +6,6 @@ class GifUploadTest < ActionDispatch::IntegrationTest
     Capybara.current_driver = :poltergeist
     Capybara.reset_sessions!
     visit("/")
-    binding.pry
     original_count = page.all(:css, "#gifs-list .gif").length
     click_link("Sign Up")
     fill_in("Email", :with => "beyrerdn3@inagiffy.com")
