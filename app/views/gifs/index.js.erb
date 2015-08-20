@@ -3,4 +3,9 @@
 $('.modal').modal('hide');
 $('body').removeClass('modal-open');
 $('.modal-backdrop').remove();
+<% if params[:tag] && !params[:tag].empty? %>
+  $('#tag').html('<h4>Gifs tagged with: <em><%= params[:tag] %></em> <%= link_to "Clear", gifs_path, remote: :true %></h4>');
+<% else %>
+  $('#tag').html('');
+<% end %>
 $("#gifs-list").html("<%=escape_javascript(render :partial => 'gifs/gif', :locals => {:gifs => @gifs})%>");

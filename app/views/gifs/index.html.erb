@@ -1,3 +1,7 @@
+<div id="tag">
+
+</div>
+
 <% if user_signed_in? %>
   <%= link_to 'New Gif', new_gif_path, :class => "btn btn-primary", :remote => true, "data-toggle" => "modal", "data-target" => "#newGif" %>
 <% end %>
