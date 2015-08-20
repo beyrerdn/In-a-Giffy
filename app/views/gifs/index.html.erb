@@ -1,7 +1,11 @@
+<div id="tag">
+
+</div>
+
 <% if user_signed_in? %>
   <%= link_to 'New Gif', new_gif_path, :class => "btn btn-primary", :remote => true, "data-toggle" => "modal", "data-target" => "#newGif" %>
 <% end %>
 
-<div id="gifs-list" class="row">
+<div id="gifs-list" class="container">
   <%= render :partial => 'gif', :locals => {:gifs => @gifs}%>
 </div>

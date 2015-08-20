@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'gifs#index'
   resources :gifs, :only => [:index, :new, :show, :create]
+  resources :charges, :only => [:new, :create]
 
   get 'tags/:tag', to: 'gifs#index', as: "tag"
 
