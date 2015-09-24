@@ -4,11 +4,7 @@
       <div class="col-xs-6 col-sm-3">
         <%= link_to gif_path(:id => gif.id), :remote => true, "data-toggle" => "modal", "data-target" => "#gif-#{gif.id}-modal" do %>
           <div class="gif-<%=gif.id%> gif">
-            <% if !gif.file_id %>
               <img src="<%=gif.url%>" class="img-responsive" alt="No Gif Found!!!"/>
-            <% else %>
-              <%= image_tag(attachment_url(gif, :file), :class => "img-responsive") %>
-            <% end %>
             <div class="vote-<%=gif.id%> vote">
               <%=render :partial => 'gifs/votelinks', :remote => true, :locals => {:gif => gif} %>
             </div>
