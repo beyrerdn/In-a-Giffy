@@ -8,11 +8,11 @@ source 'https://rubygems.org'
   gem 'kaminari'
   gem 'acts_as_votable', '~> 0.10.0'
   gem 'pg'
-  
-  gem "refile", require: "refile/rails"
-  gem "refile-mini_magick"
+
+  # gem "refile", require: "refile/rails"
+  # gem "refile-mini_magick"
   gem 'remotipart', '~> 1.2'
-  gem 'refile-s3'
+  # gem 'refile-s3'
   gem 'figaro'
 
   group :production do
