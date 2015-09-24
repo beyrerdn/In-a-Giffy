@@ -6,7 +6,7 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
-user = User.create(:email => "test_user@gif.com", :password => "password")
+user = User.create(:email => "test_user@gif.com", :username => "test_user", :password => "password")
 
 user_gifs = user.gifs << Gif.create(
   [
