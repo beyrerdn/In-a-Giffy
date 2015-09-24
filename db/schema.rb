@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150817203600) do
+ActiveRecord::Schema.define(version: 20150924184255) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -28,7 +28,6 @@ ActiveRecord::Schema.define(version: 20150817203600) do
     t.integer  "cached_weighted_score",   default: 0
     t.integer  "cached_weighted_total",   default: 0
     t.float    "cached_weighted_average", default: 0.0
-    t.string   "file_id"
   end
 
   add_index "gifs", ["cached_votes_down"], name: "index_gifs_on_cached_votes_down", using: :btree
@@ -38,12 +37,6 @@ ActiveRecord::Schema.define(version: 20150817203600) do
   add_index "gifs", ["cached_weighted_average"], name: "index_gifs_on_cached_weighted_average", using: :btree
   add_index "gifs", ["cached_weighted_score"], name: "index_gifs_on_cached_weighted_score", using: :btree
   add_index "gifs", ["cached_weighted_total"], name: "index_gifs_on_cached_weighted_total", using: :btree
-
-  create_table "refile_attachments", force: :cascade do |t|
-    t.string "namespace", null: false
-  end
-
-  add_index "refile_attachments", ["namespace"], name: "index_refile_attachments_on_namespace", using: :btree
 
   create_table "taggings", force: :cascade do |t|
     t.integer  "gif_id"

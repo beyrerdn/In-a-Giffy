@@ -5,7 +5,6 @@ class Gif < ActiveRecord::Base
                       :on => [:create, :edit, :update, :destroy],
                       :allow_blank => true,
                       :message => "Gifs only!"
-  attachment :file, content_type: "image/gif", extension: "gif"
   acts_as_votable
   belongs_to :user
   has_many :taggings
